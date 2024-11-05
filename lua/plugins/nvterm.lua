@@ -10,7 +10,7 @@ M.config = function()
     local toggle_modes = {'n', 't'}
 
     local mappings = {
-        { toggle_modes, '<A-i>', function() terminal.toggle('float') end },
+        { toggle_modes, "<leader>i", function() terminal.toggle('float') end },
     }
 
     local opts = { noremap = true, silent = true }
