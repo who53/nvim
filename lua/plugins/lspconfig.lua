@@ -9,8 +9,9 @@ M.config = function()
   local lspconfig = require('lspconfig')
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+  
   lspconfig.clangd.setup({
-    cmd = { "clangd", "
+    cmd = { "clangd", "--background-index" },
     filetypes = { "c", "cpp", "objc", "objcpp" },
     capabilities = capabilities,
     on_attach = function(client, bufnr)
