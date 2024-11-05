@@ -1,13 +1,13 @@
 local M = {
-  'hrsh7th/nvim-cmp', -- Autocompletion plugin
+  'hrsh7th/nvim-cmp', 
   dependencies = {
-    'hrsh7th/cmp-buffer',    -- Buffer completions
-    'hrsh7th/cmp-path',      -- Path completions
-    'hrsh7th/cmp-nvim-lsp',  -- LSP completions
-    'L3MON4D3/LuaSnip',      -- Snippet engine
-    'saadparwaiz1/cmp_luasnip', -- LuaSnip completions
-    'onsails/lspkind-nvim',  -- Icons for completion
-    'nvim-tree/nvim-web-devicons', -- Icons for file types
+    'hrsh7th/cmp-buffer',    
+    'hrsh7th/cmp-path',      
+    'hrsh7th/cmp-nvim-lsp',  
+    'L3MON4D3/LuaSnip',      
+    'saadparwaiz1/cmp_luasnip', 
+    'onsails/lspkind-nvim',  
+    'nvim-tree/nvim-web-devicons', 
   }
 }
 
@@ -16,7 +16,7 @@ M.config = function()
   local luasnip = require('luasnip')
   local lspkind = require('lspkind')
 
-  -- Initialize lspkind
+  
   lspkind.init()
 
   local has_words_before = function()
@@ -49,7 +49,7 @@ M.config = function()
         elseif has_words_before() then
           cmp.complete()
         else
-          fallback() -- Fall back to default Tab behavior
+          fallback() 
         end
       end, { "i", "s" }),
 
@@ -59,27 +59,26 @@ M.config = function()
         elseif luasnip.jumpable(-1) then
           luasnip.jump(-1)
         else
-          fallback() -- Fall back to default Shift-Tab behavior
+          fallback() 
         end
       end, { "i", "s" }),
     }),
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' }, -- LSP completion
-      { name = 'buffer' },   -- Buffer completion
-      { name = 'path' },     -- Path completion
-      { name = 'luasnip' },  -- Snippet completion
+      { name = 'nvim_lsp' }, 
+      { name = 'buffer' },   
+      { name = 'path' },     
+      { name = 'luasnip' },  
     }),
     formatting = {
       format = lspkind.cmp_format({
-        mode = 'symbol', -- Show only symbol annotations
-        maxwidth = 50,   -- Prevent popup from exceeding this width
-        ellipsis_char = '...', -- Truncated part shows this if exceeded
-        show_labelDetails = true, -- Show label details in menu
+        mode = 'symbol', 
+        maxwidth = 50,   
+        ellipsis_char = '...', 
+        show_labelDetails = true, 
 
-        -- Function for additional customization
         before = function(entry, vim_item)
-          -- Customize here (you can modify vim_item as needed)
-          vim_item.kind = lspkind.presets.default[vim_item.kind] .. ' ' .. vim_item.kind -- Add icon
+          
+          vim_item.kind = lspkind.presets.default[vim_item.kind] .. ' ' .. vim_item.kind 
           vim_item.menu = ({
             nvim_lsp = "[LSP]",
             luasnip = "[Snip]",
