@@ -9,6 +9,8 @@ vim.opt.number = true
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.undofile = true
 vim.opt.undolevels = 300
+vim.opt.termguicolors = true
+vim.opt.syntax = "on"
 
 vim.api.nvim_set_keymap("n", "<leader>f", ":%normal = GG<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>[", ":bnext<CR>", { noremap = true, silent = true })  
