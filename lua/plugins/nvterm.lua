@@ -3,7 +3,11 @@ local M = {
 }
 
 M.config = function()
-    require("nvterm").setup()
+    require("nvterm").setup({
+        terminals = {
+            shell = "fish",  -- use fish shell only in nvterm
+        },
+    })
 
     local terminal = require("nvterm.terminal")
 
@@ -21,4 +25,3 @@ M.config = function()
 end
 
 return M
-
