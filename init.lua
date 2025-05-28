@@ -15,3 +15,4 @@ vim.opt.syntax = "on"
 vim.api.nvim_set_keymap("n", "<leader>f", ":%normal = GG<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>[", ":bnext<CR>", { noremap = true, silent = true })  
 vim.api.nvim_set_keymap("n", "<leader>]", ":bprevious<CR>", { noremap = true, silent = true })  
+vim.api.nvim_set_keymap("n", "<leader>bd", ":bdelete<CR>", { noremap = true, silent = true })
