@@ -24,8 +24,7 @@ M.config = function()
 
     local mappings = {
         { toggle_modes, '<leader>ff', function() require('telescope.builtin').find_files() end },
-        { toggle_modes, '<leader>fg', function() require('telescope.builtin').live_grep() end },
-        { toggle_modes, '<leader>fw', function() require('telescope.builtin').grep_string() end }, 
+        { toggle_modes, '<leader>fw', function() require('telescope.builtin').live_grep() end },
     }
 
     local opts = { noremap = true, silent = true }
