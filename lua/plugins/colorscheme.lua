@@ -1,12 +1,8 @@
-local M = {
-    "bluz71/vim-nightfly-colors",
-    name = "nightfly",
-    lazy = false,
-    priority = 1000,
+return { 
+  'Sly-Harvey/radium.nvim',
+  lazy = false,
+  priority = 1000,
+  init = function()
+    vim.cmd("colorscheme radium")
+  end
 }
-
-M.config = function()
-    vim.cmd([[colorscheme nightfly]])
-end
-
-return M
