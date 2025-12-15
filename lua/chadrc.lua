@@ -5,8 +5,11 @@
 ---@type ChadrcConfig
 local M = {}
 
+vim.o.shell = "fish"
+vim.api.nvim_set_keymap("n", "<A-f>", ":%normal = GG<CR>", { noremap = true, silent = true })
+
 M.base46 = {
-	theme = "onedark",
+	theme = "radium",
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
@@ -20,5 +23,11 @@ M.base46 = {
 --          lazyload = false
 --      }
 -- }
+
+M.ui = {
+  statusline = {
+    theme = "minimal"
+  },
+}
 
 return M
