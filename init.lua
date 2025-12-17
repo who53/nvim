@@ -52,3 +52,6 @@ for _, key in ipairs({ 'h', 'j', 'k', 'l' }) do
     vim.cmd('stopinsert')
   end, { noremap = true })
 end
+
+vim.keymap.set("n", "<leader>d", function() vim.diagnostic.open_float() end, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>c", function() vim.lsp.buf.code_action() end, { noremap = true, silent = true })
