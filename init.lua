@@ -17,8 +17,8 @@ vim.keymap.set("n", "k", "gk", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>f", ":%normal = GG<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>bd", ":bdelete<CR>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>]", function() skip_term("bnext") end, { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>[", function() skip_term("bprevious") end, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>]", ":bnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>[", ":bprevious<CR>", { noremap = true, silent = true })
 
 local term_buf = nil
 local term_win = nil
