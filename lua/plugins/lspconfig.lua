@@ -12,7 +12,6 @@ M.config = function()
 
   vim.lsp.config('clangd', {
     cmd = { "clangd", "--background-index" },
-    filetypes = { "c", "cpp" },
     capabilities = capabilities,
 
     on_attach = function(client, bufnr)
@@ -27,8 +26,22 @@ M.config = function()
   vim.lsp.enable('qmlls')
 
   vim.lsp.config('qmlls', {
-    cmd = { "qmlls6", "-E" },
-    filetypes = { "qml", "qmljs" },
+    cmd = { "qmlls6", "-I", "/usr/lib/qt6/qml/", "-E" },
+    capabilities = capabilities,
+
+    on_attach = function(client, bufnr)
+      local bufopts = { noremap=true, silent=true, buffer=bufnr }
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+    end,
+  })
+
+  vim.lsp.enable('gopls')
+
+  vim.lsp.config('gopls', {
+   cmd = { "gopls" },
     capabilities = capabilities,
 
     on_attach = function(client, bufnr)
