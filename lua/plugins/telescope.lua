@@ -6,6 +6,13 @@ local M = {
 M.config = function()
     require("telescope").setup{
         defaults = {
+            layout_config = {
+                horizontal = {
+                    preview_width = 0.55,
+                },
+                width = 0.87,
+                height = 0.80,
+            },
             mappings = {
                 i = {
                     ["<C-j>"] = "move_selection_next",
@@ -19,7 +26,7 @@ M.config = function()
             },
         }
     }
-    
+
     local toggle_modes = { 'n' }
 
     local mappings = {
